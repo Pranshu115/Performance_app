@@ -310,7 +310,10 @@ def ai_assistant(name: str):
         "smart_tips": tips
     }
 
-# Load data on server start
-load_data()
+@app.get("/")
+def root():
+    return {"message": "API is live!"}
 
+# Load existing race data
+load_data()
 # Run using: uvicorn main:app --reload
